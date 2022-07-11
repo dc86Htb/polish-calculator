@@ -123,7 +123,7 @@ int main(int argc, char** argv) {
       number   : /-?[0-9]+/ ;                             \
       operator : '+' | '-' | '*' | '/' ;                  \
       expr     : <number> | '(' <operator> <expr>+ ')' ;  \
-      unlisp    : /^/ <operator> <expr>+ /$/ ;             \
+      Pcalc    : /^/ <operator> <expr>+ /$/ ;             \
     ",
     Number, Operator, Expr, Pcalc);
   
@@ -132,7 +132,7 @@ int main(int argc, char** argv) {
  /* start REPL */ 
   while (1) {
   
-    char* input = readline("unlisp> ");
+    char* input = readline("Pcalc> ");
     add_history(input);
     if(strcmp(input, "exit") == 0){
         exit(0);
